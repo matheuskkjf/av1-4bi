@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubra filmes, séries e jogos, salve seus favoritos e monte sua própria coleção.">
+  <meta name="theme-color" content="#101114">
+  <title>Frame — seu catálogo de entretenimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav">
+    <div class="container">
+      <a class="navbar-brand brand" href="#inicio" aria-label="Frame, início"><span class="brand-mark"><i class="bi bi-collection-play-fill"></i></span>frame<span class="brand-period">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegação"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item"><a class="nav-link active" href="#catalogo">Explorar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo" id="navFavorites">Favoritos <span class="nav-fav-count" id="navFavCount">0</span></a></li>
+          <li class="nav-item ms-lg-2"><button class="btn btn-accent btn-sm px-3" data-bs-toggle="modal" data-bs-target="#addTitleModal"><i class="bi bi-plus-lg me-1"></i> Adicionar título</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="inicio">
+    <section class="hero-section">
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> SEU PRÓXIMO FAVORITO ESTÁ AQUI</p>
+        <div class="row align-items-end g-4">
+          <div class="col-lg-8">
+            <h1>Histórias que<br>ficam com <span>você.</span></h1>
+            <p class="hero-copy">Um lugar para descobrir, organizar e guardar tudo que você ama assistir e jogar.</p>
+            <a class="btn btn-accent btn-lg hero-cta" href="#catalogo">Explorar catálogo <i class="bi bi-arrow-down-right ms-2"></i></a>
+          </div>
+          <div class="col-lg-4 d-none d-lg-flex justify-content-lg-end">
+            <div class="hero-stamp"><i class="bi bi-play-fill"></i><span>CURADORIA<br>DO SEU JEITO</span></div>
+          </div>
+        </div>
+        <div class="hero-bottom-line"><span>FILMES · SÉRIES · JOGOS</span><span>01 — 03</span></div>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+        <div class="section-heading d-flex flex-wrap justify-content-between align-items-end gap-3">
+          <div>
+            <p class="eyebrow">A SUA PRATELEIRA DIGITAL</p>
+            <h2>Descubra algo <span>incrível.</span></h2>
+          </div>
+          <p class="catalog-count mb-1"><span id="resultCount">0</span> títulos na coleção</p>
+        </div>
+
+        <div class="filter-bar row g-2 align-items-center mt-4 mb-4">
+          <div class="col-12 col-md">
+            <label class="visually-hidden" for="searchInput">Buscar título</label>
+            <div class="search-wrap"><i class="bi bi-search"></i><input id="searchInput" class="form-control" type="search" placeholder="Buscar por título ou descrição..." autocomplete="off"></div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-auto">
+            <label class="visually-hidden" for="categoryFilter">Filtrar por categoria</label>
+            <select id="categoryFilter" class="form-select filter-select" aria-label="Filtrar por categoria">
+              <option value="Todos">Todas as categorias</option>
+              <option value="Filme">Filmes</option>
+              <option value="Série">Séries</option>
+              <option value="Jogo">Jogos</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 col-md-auto">
+            <button type="button" class="btn favorites-filter w-100" id="favoritesFilter" aria-pressed="false"><i class="bi bi-heart me-2"></i> Só favoritos</button>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback-message" role="status" aria-live="polite" hidden></div>
+        <div class="row g-4" id="catalogGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon"><i class="bi bi-camera-reels"></i></div>
+          <h3>Nenhum título por aqui.</h3>
+          <p>Tente mudar os filtros ou adicione algo novo à sua coleção.</p>
+          <button class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#addTitleModal"><i class="bi bi-plus-lg me-1"></i> Adicionar título</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><a class="brand footer-brand" href="#inicio">frame<span class="brand-period">.</span></a><p class="mb-0">Feito para quem ama boas histórias. <span>© 2025 Frame</span></p></div>
+  </footer>
+
+  <div class="modal fade" id="addTitleModal" tabindex="-1" aria-labelledby="addTitleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content add-modal">
+        <div class="modal-header">
+          <div><p class="eyebrow mb-1">A SUA COLEÇÃO</p><h2 class="modal-title" id="addTitleModalLabel">Adicionar título</h2></div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <form id="titleForm" novalidate>
+          <div class="modal-body">
+            <div class="mb-3"><label class="form-label" for="titleName">Nome do título</label><input class="form-control" id="titleName" name="title" type="text" maxlength="60" placeholder="Ex.: O grande filme" required><div class="invalid-feedback">Informe um nome com pelo menos 2 caracteres.</div></div>
+            <div class="row g-3 mb-3">
+              <div class="col-7"><label class="form-label" for="titleCategory">Categoria</label><select class="form-select" id="titleCategory" name="category" required><option value="">Selecione</option><option value="Filme">Filme</option><option value="Série">Série</option><option value="Jogo">Jogo</option></select><div class="invalid-feedback">Escolha uma categoria.</div></div>
+              <div class="col-5"><label class="form-label" for="titleYear">Ano</label><input class="form-control" id="titleYear" name="year" type="number" min="1900" max="2099" placeholder="2025" required><div class="invalid-feedback">Informe um ano válido.</div></div>
+            </div>
+            <div class="mb-1"><label class="form-label" for="titleDescription">Descrição</label><textarea class="form-control" id="titleDescription" name="description" rows="3" maxlength="180" placeholder="O que torna esse título especial?" required></textarea><div class="invalid-feedback">Escreva uma descrição de pelo menos 8 caracteres.</div></div>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-accent"><i class="bi bi-plus-lg me-1"></i> Salvar título</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

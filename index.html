@@ -89,7 +89,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><a class="brand footer-brand" href="#inicio">frame<span class="brand-period">.</span></a><p class="mb-0">Feito para quem ama boas histórias. <span>© 2025 Frame</span></p></div>
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><a class="brand footer-brand" href="#inicio">frame<span class="brand-period">.</span></a><p class="mb-0">Feito para quem ama boas histórias. <span>© 2026 Frame</span></p></div>
   </footer>
 
   <div class="modal fade" id="addTitleModal" tabindex="-1" aria-labelledby="addTitleModalLabel" aria-hidden="true">
@@ -101,12 +101,12 @@
         </div>
         <form id="titleForm" novalidate>
           <div class="modal-body">
-            <div class="mb-3"><label class="form-label" for="titleName">Nome do título</label><input class="form-control" id="titleName" name="title" type="text" maxlength="60" placeholder="Ex.: O grande filme" required><div class="invalid-feedback">Informe um nome com pelo menos 2 caracteres.</div></div>
+            <div class="mb-3"><label class="form-label" for="titleName">Nome do título</label><input class="form-control" id="titleName" name="title" type="text" minlength="2" maxlength="60" placeholder="Ex.: O grande filme" required><div class="invalid-feedback">Informe um nome com pelo menos 2 caracteres.</div></div>
             <div class="row g-3 mb-3">
               <div class="col-7"><label class="form-label" for="titleCategory">Categoria</label><select class="form-select" id="titleCategory" name="category" required><option value="">Selecione</option><option value="Filme">Filme</option><option value="Série">Série</option><option value="Jogo">Jogo</option></select><div class="invalid-feedback">Escolha uma categoria.</div></div>
               <div class="col-5"><label class="form-label" for="titleYear">Ano</label><input class="form-control" id="titleYear" name="year" type="number" min="1900" max="2099" placeholder="2025" required><div class="invalid-feedback">Informe um ano válido.</div></div>
             </div>
-            <div class="mb-1"><label class="form-label" for="titleDescription">Descrição</label><textarea class="form-control" id="titleDescription" name="description" rows="3" maxlength="180" placeholder="O que torna esse título especial?" required></textarea><div class="invalid-feedback">Escreva uma descrição de pelo menos 8 caracteres.</div></div>
+            <div class="mb-1"><label class="form-label" for="titleDescription">Descrição</label><textarea class="form-control" id="titleDescription" name="description" rows="3" minlength="8" maxlength="180" placeholder="O que torna esse título especial?" required></textarea><div class="invalid-feedback">Escreva uma descrição de pelo menos 8 caracteres.</div></div>
           </div>
           <div class="modal-footer"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-accent"><i class="bi bi-plus-lg me-1"></i> Salvar título</button></div>
         </form>

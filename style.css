@@ -68,15 +68,14 @@ a { color: inherit; }
 .poster-tone-3 { background: radial-gradient(ellipse at 32% 30%, #c86950 0, transparent 24%), linear-gradient(140deg, #4a202c, #ad533a 54%, #201520); }
 .poster-tone-4 { background: radial-gradient(ellipse at 70% 30%, #87a7ae 0, transparent 23%), linear-gradient(145deg, #1d3448, #42636a 52%, #171a24); }
 .poster-tone-5 { background: radial-gradient(ellipse at 34% 30%, #c38dbe 0, transparent 25%), linear-gradient(145deg, #362949, #8b4d7e 52%, #1b1826); }
-.poster-symbol { position: absolute; top: 43%; left: 50%; color: rgba(255,255,255,.2); font-size: 4.7rem; transform: translate(-50%,-50%); }
 .poster-topline { position: absolute; top: 15px; right: 15px; left: 15px; display: flex; justify-content: space-between; align-items: center; }
 .category-pill { padding: 5px 9px; border: 1px solid rgba(255,255,255,.18); border-radius: 30px; background: rgba(17,18,22,.55); color: #f2f1ec; font-size: .66rem; font-weight: 700; letter-spacing: .04em; backdrop-filter: blur(8px); }
-.favorite-btn { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; background: rgba(17,18,22,.42); color: white; font-size: 1rem; backdrop-filter: blur(8px); transition: all .2s ease; }
+.favorite-btn { min-width: 35px; height: 35px; padding: 0 10px; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; background: rgba(17,18,22,.42); color: white; font-size: .72rem; font-weight: 700; backdrop-filter: blur(8px); transition: all .2s ease; }
 .favorite-btn:hover, .favorite-btn.is-favorite { border-color: #ff8291; background: rgba(255,91,117,.16); color: #ff8190; }
 .poster-title { max-width: 92%; margin: 0; color: #fff; font: 700 1.85rem/.96 var(--font-display); letter-spacing: -.055em; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
 .card-content { padding: 18px 18px 16px; }
 .card-meta { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; color: #999aa2; font-size: .73rem; }
-.card-description { display: -webkit-box; min-height: 42px; overflow: hidden; margin: 0; color: #c1c1c7; font-size: .83rem; line-height: 1.6; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.card-description { display: -webkit-box; min-height: 42px; overflow: hidden; margin: 0; color: #c1c1c7; font-size: .83rem; line-height: 1.6; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
 .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 17px; padding-top: 13px; border-top: 1px solid var(--line); color: #8d8e96; font-size: .72rem; }
 .card-footer .rating { color: #f4cd74; }
 .remove-btn { padding: 0; border: 0; background: transparent; color: #92939a; font-size: .75rem; }
